@@ -15,12 +15,9 @@
 
 アイコンは現在の状態によって変わります。
 
-- ![icon-canonical.png](https://raw.githubusercontent.com/irok/CanonicalUrlDetector/master/img/icon-canonical.png)
-    - 現在のURLは正規URLです。クリックすると元のURLに戻ります。
-- ![icon-origin.png](https://raw.githubusercontent.com/irok/CanonicalUrlDetector/master/img/icon-original.png)
-    - 現在のURLは正規のURLではありませんす。クリックすると正規のURLに変わります。
-- ![icon-otherOrigin.png](https://raw.githubusercontent.com/irok/CanonicalUrlDetector/master/img/icon-otherOrigin.png)
-    - 現在のURLは正規のURLではありませんす。クリックすると新しいタブで正規のURLが開きます。
+- ![icon-canonical.png](https://raw.githubusercontent.com/irok/CanonicalUrlDetector/master/img/icon-canonical.png) 現在のURLは正規URLです。クリックすると元のURLに戻ります。
+- ![icon-origin.png](https://raw.githubusercontent.com/irok/CanonicalUrlDetector/master/img/icon-original.png) 現在のURLは正規のURLではありませんす。クリックすると正規のURLに変わります。
+- ![icon-otherOrigin.png](https://raw.githubusercontent.com/irok/CanonicalUrlDetector/master/img/icon-otherOrigin.png) 現在のURLは正規のURLではありませんす。クリックすると新しいタブで正規のURLが開きます。
 
 ## Install
 
