@@ -1,0 +1,31 @@
+{
+  "name": "CanonicalUrlDetector",
+  "version": "1.0.0",
+  "description": "This is a Chrome extension to detect the canonical url and click to toggle the url.",
+  "author": "irok",
+  "license": "MIT",
+  "main": "background.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/irok/CanonicalUrlDetector.git"
+  },
+  "keywords": [
+    "chrome",
+    "extension",
+    "canonical"
+  ],
+  "bugs": {
+    "url": "https://github.com/irok/CanonicalUrlDetector/issues"
+  },
+  "homepage": "https://github.com/irok/CanonicalUrlDetector",
+  "devDependencies": {
+    "del": "^0.1.3",
+    "event-stream": "^3.3.2",
+    "gulp": "^3.9.1",
+    "gulp-zip": "^2.0.3",
+    "run-sequence": "^0.3.7"
+  }
+}

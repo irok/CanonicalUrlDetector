@@ -1,0 +1,23 @@
+{
+  "name": "CanonicalUrlDetector",
+  "version": "1.0.0",
+  "description": "Detect the canonical url and click to toggle the url.",
+  "author": "irok",
+  "homepage_url": "https://github.com/irok/CanonicalUrlDetector",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [{
+    "matches": ["http://*/*", "https://*/*"],
+    "js": ["content.js"]
+  }],
+  "icons": {
+    "48": "img/icon-48.png",
+    "128": "img/icon-128.png"
+  },
+  "page_action": {
+    "default_icon": "img/icon-19-canonical.png"
+  },
+  "manifest_version": 2
+}
