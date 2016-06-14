@@ -13,11 +13,10 @@
     "js": ["content.js"]
   }],
   "icons": {
-    "48": "img/icon-48.png",
     "128": "img/icon-128.png"
   },
   "page_action": {
-    "default_icon": "img/icon-19-canonical.png"
+    "default_icon": "img/icon-canonical.png"
   },
   "manifest_version": 2
 }
