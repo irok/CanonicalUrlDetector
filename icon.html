@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>icons</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+<style>
+* {
+  box-sizing: border-box;
+}
+.circle {
+  position: relative;
+  display: inline-block;
+  margin: 10px 0 0 10px;
+  border-radius: 50%;
+  border: 1px solid;
+  text-align: center;
+  vertical-align: middle;
+}
+.small  { width: 19px; height: 19px; line-height: 19px; font-size: 12px; }
+.medium { width: 48px; height: 48px; line-height: 50px; font-size: 33px; }
+.large  { width:128px; height:128px; line-height:136px; font-size: 96px; }
+.canon  { background-color: rgb(223,242,191); color: rgb( 79,138, 16); border-color: rgb( 79,138, 16); }
+.notcn  { background-color: rgb(254,239,179); color: rgb(159, 96,  0); border-color: rgb(159, 96,  0); }
+.badcn  { background-color: rgb(255,186,186); color: rgb(216,  0, 12); border-color: rgb(216,  0, 12); }
+.text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 128px;
+  font: bold 12px/128px Verdana;
+  text-align: center;
+  -webkit-filter: opacity(100%);
+}
+</style>
+</head>
+<body>
+<div class="circle small canon"><i class="fa fa-refresh" aria-hidden="true"></i></div><br>
+<div class="circle small notcn"><i class="fa fa-refresh" aria-hidden="true"></i></div><br>
+<div class="circle small badcn"><i class="fa fa-refresh" aria-hidden="true"></i></div><br>
+<div class="circle medium canon"><i class="fa fa-refresh" aria-hidden="true"></i></div><br>
+<div class="circle large canon"><i class="fa fa-refresh" aria-hidden="true"></i><div class="text">Canonical URL</div></div><br>
+</body>
+</html>

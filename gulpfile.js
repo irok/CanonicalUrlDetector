@@ -12,7 +12,7 @@ gulp.task('prepare', function() {
     return merge(
         gulp.src(['manifest.json', 'background.js', 'content.js'])
             .pipe(gulp.dest('tmp/')),
-        gulp.src('img/*')
+        gulp.src('img/icon-*')
             .pipe(gulp.dest('tmp/img/'))
     );
 });
