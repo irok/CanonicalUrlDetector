@@ -19,6 +19,7 @@
 }
 .small  { width: 19px; height: 19px; line-height: 19px; font-size: 12px; }
 .medium { width: 48px; height: 48px; line-height: 50px; font-size: 33px; }
+.main   { width: 96px; height: 96px; line-height:105px; font-size: 72px; }
 .large  { width:128px; height:128px; line-height:136px; font-size: 96px; }
 .canon  { background-color: rgb(223,242,191); color: rgb( 79,138, 16); border-color: rgb( 79,138, 16); }
 .notcn  { background-color: rgb(254,239,179); color: rgb(159, 96,  0); border-color: rgb(159, 96,  0); }
@@ -27,10 +28,20 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 128px;
-  font: bold 12px/128px Verdana;
+  font-weight: bold;
+  font-family: Verdana;
   text-align: center;
   -webkit-filter: opacity(100%);
+}
+.text--main {
+  width: 96px;
+  font-size: 10px;
+  line-height: 96px;
+}
+.text--large {
+  width: 128px;
+  font-size: 12px;
+  line-height: 128px;
 }
 </style>
 </head>
@@ -39,6 +50,7 @@
 <div class="circle small notcn"><i class="fa fa-refresh" aria-hidden="true"></i></div><br>
 <div class="circle small badcn"><i class="fa fa-refresh" aria-hidden="true"></i></div><br>
 <div class="circle medium canon"><i class="fa fa-refresh" aria-hidden="true"></i></div><br>
-<div class="circle large canon"><i class="fa fa-refresh" aria-hidden="true"></i><div class="text">Canonical URL</div></div><br>
+<div class="circle main canon"><i class="fa fa-refresh" aria-hidden="true"></i><div class="text text--main">Canonical URL</div></div><br>
+<div class="circle large canon"><i class="fa fa-refresh" aria-hidden="true"></i><div class="text text--large">Canonical URL</div></div><br>
 </body>
 </html>
