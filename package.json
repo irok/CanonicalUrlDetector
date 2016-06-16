@@ -1,6 +1,6 @@
 {
   "name": "CanonicalUrlDetector",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "This is a Chrome extension to detect the canonical url and click to toggle the url.",
   "author": "irok",
   "license": "MIT",

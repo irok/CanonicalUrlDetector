@@ -1,6 +1,6 @@
 {
   "name": "Canonical Url Detector",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Detect the canonical url and click to toggle the url.",
   "author": "irok",
   "homepage_url": "https://github.com/irok/CanonicalUrlDetector",
