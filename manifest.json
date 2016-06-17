@@ -3,7 +3,7 @@
   "version": "1.0.4",
   "description": "Detect the canonical url and click to toggle the url.",
   "author": "irok",
-  "homepage_url": "https://chrome.google.com/webstore/detail/jciamlmfalnccccakbejfclmkohjgiia",
+  "homepage_url": "https://chrome.google.com/webstore/detail/dcbmeicnoejpldipejlefojiiebhogij",
   "background": {
     "scripts": ["background.js"],
     "persistent": false
