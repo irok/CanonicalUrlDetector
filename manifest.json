@@ -3,7 +3,7 @@
   "version": "1.0.3",
   "description": "Detect the canonical url and click to toggle the url.",
   "author": "irok",
-  "homepage_url": "https://github.com/irok/CanonicalUrlDetector",
+  "homepage_url": "https://chrome.google.com/webstore/detail/jciamlmfalnccccakbejfclmkohjgiia",
   "background": {
     "scripts": ["background.js"],
     "persistent": false
