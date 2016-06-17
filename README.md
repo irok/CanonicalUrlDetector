@@ -23,4 +23,4 @@
 
 ## Install
 
-Install from Chrome Web Store "[Canonical Url Detector](https://chrome.google.com/webstore/detail/canonical-url-detector/jciamlmfalnccccakbejfclmkohjgiia)".
+Install from Chrome Web Store "[Canonical Url Detector](https://chrome.google.com/webstore/detail/dcbmeicnoejpldipejlefojiiebhogij)".
