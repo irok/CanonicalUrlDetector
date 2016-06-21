@@ -1,25 +1,28 @@
 {
+  "manifest_version": 2,
   "name": "Canonical Url Detector",
-  "version": "1.0.4",
-  "description": "Detect the canonical url and click to toggle the url.",
+  "description": "Detect the canonical url and click to change url.",
+  "version": "1.1.0",
   "author": "irok",
   "homepage_url": "https://chrome.google.com/webstore/detail/dcbmeicnoejpldipejlefojiiebhogij",
-  "background": {
-    "scripts": ["background.js"],
-    "persistent": false
-  },
-  "content_scripts": [{
-    "matches": ["http://*/*", "https://*/*"],
-    "js": ["content.js"],
-    "run_at": "document_end"
-  }],
+  "keywords": [
+    "canonical"
+  ],
   "icons": {
     "16": "img/icon-canonical.png",
     "48": "img/icon-48.png",
     "128": "img/icon-128.png"
   },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
   "page_action": {
     "default_icon": "img/icon-canonical.png"
   },
-  "manifest_version": 2
+  "content_scripts": [{
+    "matches": ["http://*/*", "https://*/*"],
+    "js": ["content.js"],
+    "run_at": "document_end"
+  }]
 }
