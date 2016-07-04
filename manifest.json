@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Canonical Url Detector",
   "description": "Detect the canonical url and click to change url.",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "irok",
   "homepage_url": "https://chrome.google.com/webstore/detail/dcbmeicnoejpldipejlefojiiebhogij",
   "keywords": [
