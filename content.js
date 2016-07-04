@@ -25,14 +25,14 @@
 
     function currentStatus() {
         if (Url.canonical.indexOf(L.origin + '/') !== 0) {
-            return 'otheOrigin';
+            return 'otherOrigin';
         }
         return L.href === Url.canonical ? 'canonical' : 'original';
     }
 
     function handleMessage(msg, sender, sendResponse) {
         var status = currentStatus();
-        if (status === 'otheOrigin') {
+        if (status === 'otherOrigin') {
             window.open(Url.canonical, '_blank');
             return;
         }

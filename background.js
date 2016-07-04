@@ -1,7 +1,7 @@
 var tooltipHint = {
     canonical: 'Change to original URL',
     original:  'Change to canonical URL',
-    otheOrigin: 'Open the canonical URL'
+    otherOrigin: 'Open the canonical URL'
 };
 
 chrome.pageAction.onClicked.addListener(function(tab) {
