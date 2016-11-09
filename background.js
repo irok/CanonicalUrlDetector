@@ -5,23 +5,23 @@ var tooltipHint = {
 };
 
 chrome.pageAction.onClicked.addListener(function(tab) {
-    chrome.tabs.sendMessage(tab.id, 'clicked', function(name) {
-        change_action(tab, name);
+    chrome.tabs.sendMessage(tab.id, 'clicked', function(status) {
+        change_action(tab, status);
     });
 });
 
 // first time only
-chrome.runtime.onMessage.addListener(function(name, sender) {
-    change_action(sender.tab, name);
+chrome.runtime.onMessage.addListener(function(status, sender) {
+    change_action(sender.tab, status);
 });
 
-function change_action(tab, name) {
+function change_action(tab, status) {
     chrome.pageAction.setIcon({
-        path: 'img/icon-' + name + '.png',
+        path: 'img/icon-' + status.code + '.png',
         tabId: tab.id
     });
     chrome.pageAction.setTitle({
-        title: tooltipHint[name],
+        title: status.code === 'otherOrigin' ? status.url.canonical : tooltipHint[status.code],
         tabId: tab.id
     });
     chrome.pageAction.show(tab.id);

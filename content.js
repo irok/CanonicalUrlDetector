@@ -23,21 +23,37 @@
         //'plus.google.com': true
     };
 
-    function currentStatus() {
-        if (Url.canonical.indexOf(L.origin + '/') !== 0) {
-            return 'otherOrigin';
+    function Status(code) {
+        this.code = code;
+        this.url  = Url;
+    }
+
+    function getCurrentStatus() {
+        var code = 'original';
+
+        if (Url.canonical !== null) {
+            if (Url.canonical === L.href) {
+                code = 'canonical';
+            }
+            else if (!Url.canonical.startsWith(L.origin + '/')) {
+                code = 'otherOrigin';
+            }
         }
-        return L.href === Url.canonical ? 'canonical' : 'original';
+
+        return new Status(code);
     }
 
     function handleMessage(msg, sender, sendResponse) {
-        var status = currentStatus();
-        if (status === 'otherOrigin') {
+        var status = getCurrentStatus();
+        if (status.code === 'otherOrigin') {
             window.open(Url.canonical, '_blank');
             return;
         }
-        var nextStatus = status === 'original' ? 'canonical' : 'original';
-        history.replaceState(null, null, Url[nextStatus]);
+
+        var nextStatus = new Status(
+            status.code === 'original' ? 'canonical' : 'original'
+        );
+        history.replaceState(null, null, Url[nextStatus.code]);
         sendResponse(nextStatus);
     }
 
@@ -62,7 +78,7 @@
         if (canonical !== L.href) {
             Url.canonical = canonical;
             chrome.runtime.onMessage.addListener(handleMessage);
-            chrome.runtime.sendMessage(currentStatus());
+            chrome.runtime.sendMessage(getCurrentStatus());
         }
     }
 
