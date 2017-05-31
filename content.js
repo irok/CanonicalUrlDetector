@@ -29,32 +29,45 @@
     }
 
     function getCurrentStatus() {
-        var code = 'original';
-
         if (Url.canonical !== null) {
             if (Url.canonical === L.href) {
-                code = 'canonical';
+                return new Status('canonical');
             }
             else if (!Url.canonical.startsWith(L.origin + '/')) {
-                code = 'otherOrigin';
+                return new Status('otherOrigin');
             }
         }
-
-        return new Status(code);
+        return new Status('original');
     }
 
-    function handleMessage(msg, sender, sendResponse) {
+    function handlePageActionClicked() {
         var status = getCurrentStatus();
         if (status.code === 'otherOrigin') {
             window.open(Url.canonical, '_blank');
-            return;
         }
+        else {
+            var code = status.code === 'original' ? 'canonical' : 'original';
+            history.replaceState(null, null, Url[code]);
+        }
+    }
 
-        var nextStatus = new Status(
-            status.code === 'original' ? 'canonical' : 'original'
-        );
-        history.replaceState(null, null, Url[nextStatus.code]);
-        sendResponse(nextStatus);
+    function sendStatus() {
+        chrome.runtime.sendMessage(getCurrentStatus());
+    }
+
+    function setup() {
+        chrome.runtime.onMessage.addListener(handlePageActionClicked);
+        window.addEventListener('load', sendStatus);
+
+        ['pushState', 'replaceState'].forEach(function(api) {
+            var origApi = history[api];
+            history[api] = function() {
+                origApi.apply(history, arguments);
+                sendStatus();
+            };
+        });
+
+        sendStatus();
     }
 
     function cleanUrl() {
@@ -71,18 +84,19 @@
 
     function detect() {
         var link = document.querySelector('link[rel="canonical"]');
-        var canonical = link            ? link.href
-                      : L.search !== '' ? cleanUrl()
-                      :                   L.href
-                      ;
-        if (canonical !== L.href) {
-            Url.canonical = canonical;
-            chrome.runtime.onMessage.addListener(handleMessage);
-            chrome.runtime.sendMessage(getCurrentStatus());
+        if (link) {
+            Url.canonical = link.href;
+        }
+        else if (L.search !== '') {
+            Url.canonical = cleanUrl();
+        }
+
+        if (Url.canonical !== L.href) {
+            setup();
         }
     }
 
     if (!ExcludeHosts[L.host]) {
         detect();
     }
-})(location);
+})(window.location);

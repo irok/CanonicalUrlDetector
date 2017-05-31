@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Canonical Url Detector",
   "description": "Detect the canonical url and click to change url.",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "irok",
   "homepage_url": "https://chrome.google.com/webstore/detail/dcbmeicnoejpldipejlefojiiebhogij",
   "icons": {
@@ -15,7 +15,10 @@
     "persistent": false
   },
   "page_action": {
-    "default_icon": "img/icon-canonical.png"
+    "default_icon": {
+      "16": "img/icon-canonical.png"
+    },
+    "default_title": "Canonical Url Detector"
   },
   "content_scripts": [{
     "matches": ["http://*/*", "https://*/*"],

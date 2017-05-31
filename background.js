@@ -5,17 +5,14 @@ var tooltipHint = {
 };
 
 chrome.pageAction.onClicked.addListener(function(tab) {
-    chrome.tabs.sendMessage(tab.id, 'clicked', function(status) {
-        change_action(tab, status);
-    });
+    chrome.tabs.sendMessage(tab.id, 'clicked');
 });
 
-// first time only
 chrome.runtime.onMessage.addListener(function(status, sender) {
-    change_action(sender.tab, status);
+    changeAction(sender.tab, status);
 });
 
-function change_action(tab, status) {
+function changeAction(tab, status) {
     chrome.pageAction.setIcon({
         path: 'img/icon-' + status.code + '.png',
         tabId: tab.id
