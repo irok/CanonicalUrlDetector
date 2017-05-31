@@ -11,7 +11,7 @@
 .circle {
   position: relative;
   display: inline-block;
-  margin: 10px 0 0 10px;
+  margin: 5px 20px;
   border-radius: 50%;
   border: 1px solid;
   text-align: center;
@@ -22,9 +22,11 @@
 .main   { width: 32px; height: 32px; line-height: 32px; font-size: 20px; }
 .large  { width: 48px; height: 48px; line-height: 49px; font-size: 33px; }
 .page   { width:128px; height:128px; line-height:136px; font-size: 96px; }
+.deflt  { background-color: rgb(235,235,235); color: rgb(166,166,166); border-color: rgb(166,166,166); }
 .canon  { background-color: rgb(232,250,200); color: rgb( 79,138, 16); border-color: rgb( 79,138, 16); }
 .notcn  { background-color: rgb(255,248,188); color: rgb(159, 96,  0); border-color: rgb(159, 96,  0); }
 .badcn  { background-color: rgb(255,216,216); color: rgb(216,  0, 12); border-color: rgb(216,  0, 12); }
+.toolbar { background-color: rgb(242,242,242); }
 .text {
   position: absolute;
   top: 0;
@@ -37,12 +39,15 @@
 </style>
 </head>
 <body>
-<div class="circle small canon"><i class="fa fa-refresh" aria-hidden="true"></i></div><br>
-<div class="circle small notcn"><i class="fa fa-refresh" aria-hidden="true"></i></div><br>
-<div class="circle small badcn"><i class="fa fa-refresh" aria-hidden="true"></i></div><br>
-<div class="circle medium canon"><i class="fa fa-refresh" aria-hidden="true"></i></div><br>
-<div class="circle main canon"><i class="fa fa-refresh" aria-hidden="true"></i></div><br>
-<div class="circle large canon"><i class="fa fa-refresh" aria-hidden="true"></i></div><br>
-<div class="circle page canon"><i class="fa fa-refresh" aria-hidden="true"></i></div><br>
+  <div class="toolbar">
+    <div class="circle small deflt"><i class="fa fa-refresh" aria-hidden="true"></i></div><br>
+    <div class="circle small canon"><i class="fa fa-refresh" aria-hidden="true"></i></div><br>
+    <div class="circle small notcn"><i class="fa fa-refresh" aria-hidden="true"></i></div><br>
+    <div class="circle small badcn"><i class="fa fa-refresh" aria-hidden="true"></i></div><br>
+  </div>
+  <div class="circle medium canon"><i class="fa fa-refresh" aria-hidden="true"></i></div><br>
+  <div class="circle main canon"><i class="fa fa-refresh" aria-hidden="true"></i></div><br>
+  <div class="circle large canon"><i class="fa fa-refresh" aria-hidden="true"></i></div><br>
+  <div class="circle page canon"><i class="fa fa-refresh" aria-hidden="true"></i></div><br>
 </body>
 </html>
