@@ -91,7 +91,7 @@
             Url.canonical = cleanUrl();
         }
 
-        if (Url.canonical !== L.href) {
+        if (Url.canonical !== null && Url.canonical !== L.href) {
             setup();
         }
     }
