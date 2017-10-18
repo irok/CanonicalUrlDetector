@@ -1,8 +1,9 @@
 {
   "manifest_version": 2,
   "name": "Canonical Url Detector",
-  "description": "Detect the canonical url and click to change url.",
-  "version": "1.2.2",
+  "description": "__MSG_appDesc__",
+  "default_locale": "ja",
+  "version": "1.2.3",
   "author": "irok",
   "homepage_url": "https://chrome.google.com/webstore/detail/dcbmeicnoejpldipejlefojiiebhogij",
   "icons": {

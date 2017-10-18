@@ -5,24 +5,26 @@ var del   = require('del');
 var runSequence = require('run-sequence');
 
 gulp.task('build', function(cb) {
-    runSequence('prepare', 'zip', 'clean', cb);
+  runSequence('prepare', 'zip', 'clean', cb);
 });
 
 gulp.task('prepare', function() {
-    return merge(
-        gulp.src(['manifest.json', 'background.js', 'content.js'])
-            .pipe(gulp.dest('tmp/')),
-        gulp.src('img/icon-*')
-            .pipe(gulp.dest('tmp/img/'))
-    );
+  return merge(
+    gulp.src(['manifest.json', 'background.js', 'content.js'])
+      .pipe(gulp.dest('tmp/')),
+    gulp.src('img/icon-*')
+      .pipe(gulp.dest('tmp/img/')),
+    gulp.src('_locales/**')
+      .pipe(gulp.dest('tmp/_locales/'))
+  );
 });
 
 gulp.task('zip', function() {
-    return gulp.src('tmp/**')
-        .pipe(zip('CanonicalUrlDetector.zip'))
-        .pipe(gulp.dest('./'));
+  return gulp.src('tmp/**')
+    .pipe(zip('CanonicalUrlDetector.zip'))
+    .pipe(gulp.dest('./'));
 });
 
 gulp.task('clean', function(cb) {
-    del(['tmp/', 'CanonicalUrlDetector/'], cb);
+  del(['tmp/', 'CanonicalUrlDetector/'], cb);
 });
