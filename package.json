@@ -1,7 +1,7 @@
 {
   "name": "CanonicalUrlDetector",
   "description": "This is a Chrome extension to detect the canonical url and click to change url.",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "author": "irok",
   "bugs": {
     "url": "https://github.com/irok/CanonicalUrlDetector/issues"
