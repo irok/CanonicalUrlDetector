@@ -1,5 +1,5 @@
 {
   "appDesc": {
-    "message": "If the Canonical URL is set, the icon becomes active so when you click it, the URL will change. The same thing happens if extra parameters are attached to the URL of pages. Please use it, for example, when you share a page."
+    "message": "If the Canonical URL is set, the icon becomes active, and clicking it, the URL will change."
   }
 }
