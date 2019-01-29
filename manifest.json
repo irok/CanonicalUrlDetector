@@ -25,5 +25,8 @@
     "matches": ["http://*/*", "https://*/*"],
     "js": ["content.js"],
     "run_at": "document_end"
-  }]
+  }],
+  "permissions": [
+    "webNavigation"
+  ]
 }
