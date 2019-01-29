@@ -8,6 +8,10 @@ chrome.pageAction.onClicked.addListener(function(tab) {
     chrome.tabs.sendMessage(tab.id, 'clicked');
 });
 
+chrome.webNavigation.onHistoryStateUpdated.addListener(function(details) {
+    chrome.tabs.sendMessage(details.tabId, 'changed');
+});
+
 chrome.runtime.onMessage.addListener(function(status, sender) {
     changeAction(sender.tab, status);
 });

@@ -1,9 +1,9 @@
 (function(L) {
-    var Url = {
+    const Url = {
         original: L.href,
         canonical: null
     };
-    var UnnecessaryParams = {
+    const UnnecessaryParams = {
         action_object_map: true,
         action_ref_map: true,
         action_type_map: true,
@@ -19,7 +19,7 @@
         utm_source: true,
         utm_term: true
     };
-    var ExcludeHosts = {
+    const ExcludeHosts = {
         //'plus.google.com': true
     };
 
@@ -40,13 +40,13 @@
         return new Status('original');
     }
 
-    function handlePageActionClicked() {
-        var status = getCurrentStatus();
+    function changeUrl() {
+        const status = getCurrentStatus();
         if (status.code === 'otherOrigin') {
             window.open(Url.canonical, '_blank');
         }
         else {
-            var code = status.code === 'original' ? 'canonical' : 'original';
+            const code = status.code === 'original' ? 'canonical' : 'original';
             history.replaceState(null, null, Url[code]);
         }
     }
@@ -55,35 +55,37 @@
         chrome.runtime.sendMessage(getCurrentStatus());
     }
 
+    function handleMsg(msg) {
+      const handler = {
+        clicked: changeUrl,
+        changed: sendStatus
+      };
+
+      if (handler[msg]) {
+        handler[msg]();
+      }
+    }
+
     function setup() {
-        chrome.runtime.onMessage.addListener(handlePageActionClicked);
+        chrome.runtime.onMessage.addListener(handleMsg);
         window.addEventListener('load', sendStatus);
-
-        ['pushState', 'replaceState'].forEach(function(api) {
-            var origApi = history[api];
-            history[api] = function() {
-                origApi.apply(history, arguments);
-                sendStatus();
-            };
-        });
-
         sendStatus();
     }
 
     function cleanUrl() {
-        var params = [];
+        const params = [];
         L.search.substr(1).split('&').forEach(function(param) {
             if (!UnnecessaryParams[ param.split('=')[0] ]) {
                 params.push(param);
             }
         });
 
-        var query = params.length ? '?' + params.join('&') : '';
+        const query = params.length ? '?' + params.join('&') : '';
         return L.protocol + '//' + L.host + L.pathname + query + L.hash;
     }
 
     function detect() {
-        var link = document.querySelector('link[rel="canonical"]');
+        const link = document.querySelector('link[rel="canonical"]');
         if (link) {
             Url.canonical = link.href;
         }
