@@ -21,3 +21,9 @@ URLに余計なパラメータが入っているときも同じように動き�
 1. `link[rel=canonical]`要素のhref属性値
 2. 不要なパラメータを除去したURL
     * 詳しくは[`content.js`](https://github.com/irok/CanonicalUrlDetector/blob/master/content.js)を見てください。
+
+## インストール
+* Chrome
+    * [Canonical Url Detector - Chrome ウェブストア](https://chrome.google.com/webstore/detail/canonical-url-detector/dcbmeicnoejpldipejlefojiiebhogij)
+* Firefox
+    * [Canonical Url Detector – 🦊 Firefox (ja) 向け拡張機能を入手](https://addons.mozilla.org/ja/firefox/addon/canonical-url-detector/)

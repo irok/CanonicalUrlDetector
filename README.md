@@ -21,3 +21,9 @@ The following is called canonical url.
 1. Value of the href attribute of the `link[rel="canonical"]` element.
 2. The url from which extra parameters have been removed.
     * See [`content.js`](https://github.com/irok/CanonicalUrlDetector/blob/master/content.js) for details.
+
+## install
+* Chrome
+    * [Canonical Url Detector - Chrome Web Store](https://chrome.google.com/webstore/detail/canonical-url-detector/dcbmeicnoejpldipejlefojiiebhogij)
+* Firefox
+    * [Canonical Url Detector – Get this Extension for 🦊 Firefox (en-US)](https://addons.mozilla.org/en-US/firefox/addon/canonical-url-detector/)
