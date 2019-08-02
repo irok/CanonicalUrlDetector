@@ -1,5 +1,5 @@
 {
   "appDesc": {
-    "message": "The icon becomes active when the page has Canonical URL, and clicking it changes URL in the address bar to Canonical URL without reloading the page. It works in the same way when the URL contains extra parameters. Please use it, for example, when you share a page."
+    "message": "The icon becomes active when the page has Canonical URL, and clicking it changes URL to Canonical URL without reloading the page."
   }
 }
