@@ -5,8 +5,8 @@
 
 This is a browser extension for Chrome and Firefox.
 
-The extension icon becomes active when the page has Canonical URL, and click it to change URL in the address bar to Canonical URL without reloading the page. Click again to return to the original url.
-It works in the same way when the url contains extra parameters.
+The extension icon becomes active when the page has Canonical URL, and click it to change URL in the address bar to Canonical URL without reloading the page. Click again to return to the original URL.
+It works in the same way when the URL contains extra parameters.
 Please use it, for example, when you share a page.
 
 <img src="https://raw.githubusercontent.com/irok/CanonicalUrlDetector/master/img/disabled-icon.png" width="16"/> There is no Canonical URL.
