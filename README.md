@@ -5,7 +5,7 @@
 
 This is a browser extension for Chrome and Firefox.
 
-The icon becomes active when the page has Canonical URL, and clicking it changes URL in the address bar to Canonical URL without reloading the page. Click again to return to the original url.
+The extension icon becomes active when the page has Canonical URL, and click it to change URL in the address bar to Canonical URL without reloading the page. Click again to return to the original url.
 It works in the same way when the url contains extra parameters.
 Please use it, for example, when you share a page.
 
