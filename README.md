@@ -3,7 +3,7 @@
 - English
 - [日本語](https://github.com/irok/CanonicalUrlDetector/blob/master/README.ja.md)
 
-The icon is activated when the canonical url is set on the page, and the url changes when you click it. (Click again to return to the original url.)
+The icon is activated when the canonical url is set on the page, and the url changes when you click it. (It does not reload, it just changes the displayed url. Click again to return to the original url.)
 It works in the same way when the url contains extra parameters.
 Please use it, for example, when you share a page.
 
