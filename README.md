@@ -3,23 +3,24 @@
 - English
 - [日本語](https://github.com/irok/CanonicalUrlDetector/blob/master/README.ja.md)
 
-The icon is activated when the canonical url is set on the page, and the url changes when you click it. (It does not reload, it just changes the displayed url. Click again to return to the original url.)
+This is a browser extension for Chrome and Firefox.
+
+The icon becomes active when the page has Canonical URL, and clicking it changes URL in the address bar to Canonical URL without reloading the page. Click again to return to the original url.
 It works in the same way when the url contains extra parameters.
 Please use it, for example, when you share a page.
 
-<img src="https://raw.githubusercontent.com/irok/CanonicalUrlDetector/master/img/disabled-icon.png" width="16"/> There is no canonical url.
+<img src="https://raw.githubusercontent.com/irok/CanonicalUrlDetector/master/img/disabled-icon.png" width="16"/> There is no Canonical URL.
 
-<img src="https://raw.githubusercontent.com/irok/CanonicalUrlDetector/master/img/icon-original.png" width="16"/> It is not a canonical url. Click to change it to canonical url.
+<img src="https://raw.githubusercontent.com/irok/CanonicalUrlDetector/master/img/icon-original.png" width="16"/> Not Canonical URL. Clicking it changes to Canonical URL.
 
-<img src="https://raw.githubusercontent.com/irok/CanonicalUrlDetector/master/img/icon-canonical.png" width="16"/> It is a canonical url. Click to return to the original url.
+<img src="https://raw.githubusercontent.com/irok/CanonicalUrlDetector/master/img/icon-canonical.png" width="16"/> Canonical URL. Click to return to the original URL.
 
-<img src="https://raw.githubusercontent.com/irok/CanonicalUrlDetector/master/img/icon-otherOrigin.png" width="16"/> It is not a canonical url. Click to open the canonical url in a new tab.
+<img src="https://raw.githubusercontent.com/irok/CanonicalUrlDetector/master/img/icon-otherOrigin.png" width="16"/> Not Canonical URL. Clicking it opens Canonical URL in new tab.
 
-## about canonical url
-The following is called canonical url.
+## about Canonical URL
 
 1. Value of the href attribute of the `link[rel="canonical"]` element.
-2. The url from which extra parameters have been removed.
+2. The URL from which extra parameters have been removed.
     * See [`content.js`](https://github.com/irok/CanonicalUrlDetector/blob/master/content.js) for details.
 
 ## install
