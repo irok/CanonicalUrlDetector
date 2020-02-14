@@ -1,29 +1,18 @@
-var tooltipHint = {
-    canonical: 'Change to original URL',
-    original:  'Change to canonical URL',
-    otherOrigin: 'Open the canonical URL'
-};
-
-chrome.pageAction.onClicked.addListener(function(tab) {
-    chrome.tabs.sendMessage(tab.id, 'clicked');
+chrome.tabs.onUpdated.addListener((tabId, {status}, {url}) => {
+  if (status === 'complete') {
+    chrome.tabs.sendMessage(tabId, {type: status, url});
+  }
 });
 
-chrome.webNavigation.onHistoryStateUpdated.addListener(function(details) {
-    chrome.tabs.sendMessage(details.tabId, 'changed');
+chrome.runtime.onMessage.addListener(({type, title}, {frameId, tab: {id: tabId}}) => {
+  if (frameId === 0) {
+    const path = `img/icon-${type}.png`;
+    chrome.pageAction.setIcon({tabId, path});
+    chrome.pageAction.setTitle({tabId, title});
+    chrome.pageAction[type == 'disabled' ? 'hide' : 'show'](tabId);
+  }
 });
 
-chrome.runtime.onMessage.addListener(function(status, sender) {
-    changeAction(sender.tab, status);
+chrome.pageAction.onClicked.addListener((tab) => {
+  chrome.tabs.sendMessage(tab.id, {type: 'click'});
 });
-
-function changeAction(tab, status) {
-    chrome.pageAction.setIcon({
-        path: 'img/icon-' + status.code + '.png',
-        tabId: tab.id
-    });
-    chrome.pageAction.setTitle({
-        title: status.code === 'otherOrigin' ? status.url.canonical : tooltipHint[status.code],
-        tabId: tab.id
-    });
-    chrome.pageAction.show(tab.id);
-}
