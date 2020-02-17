@@ -1,104 +1,97 @@
-(function(L) {
-    const Url = {
-        original: L.href,
-        canonical: null
-    };
-    const UnnecessaryParams = {
-        action_object_map: true,
-        action_ref_map: true,
-        action_type_map: true,
-        fb_action_ids: true,
-        fb_action_types: true,
-        fb_aggregation_id: true,
-        fb_comment_id: true,
-        fb_source: true,
-        fb_xd_fragment: true,
-        utm_campaign: true,
-        utm_content: true,
-        utm_medium: true,
-        utm_source: true,
-        utm_term: true
-    };
-    const ExcludeHosts = {
-        //'plus.google.com': true
-    };
+const UnnecessaryParams = [
+  'action_object_map',
+  'action_ref_map',
+  'action_type_map',
+  'fb_action_ids',
+  'fb_action_types',
+  'fb_aggregation_id',
+  'fb_comment_id',
+  'fb_ref',
+  'fb_source',
+  'fb_xd_fragment',
+  'gclid',
+  'utm_campaign',
+  'utm_content',
+  'utm_medium',
+  'utm_place',
+  'utm_reader',
+  'utm_source',
+  'utm_term'
+];
+const UnnecessaryParamRegex = /^ga_/;
 
-    function Status(code) {
-        this.code = code;
-        this.url  = Url;
+function isNecessaryParam(param) {
+  const name = param.split('=')[0];
+  return !(UnnecessaryParams.includes(name) || UnnecessaryParamRegex.test(name));
+}
+
+function getPureUrl(url) {
+  const _ = new URL(url);
+  const params = _.search.length ? _.search.substr(1).split('&').filter(isNecessaryParam) : [];
+  const query = params.length ? `?${params.join('&')}` : '';
+  return `${_.protocol}//${_.host}${_.pathname}${query}`;
+}
+
+function getCanonicalUrl() {
+  const link = document.querySelector('link[rel="canonical"]');
+  return link && link.href;
+}
+
+const UrlInfo = {};
+const State = (type, title, url) => ({type, title, url});
+
+function getState() {
+  const canonical = new URL(UrlInfo.canonicalUrl || UrlInfo.pureUrl);
+  const original = new URL(UrlInfo.originalUrl);
+  const current = new URL(UrlInfo.currentUrl);
+
+  if (canonical.origin != original.origin) {
+    return State('other-origin', `Open the "${canonical.href}"`, canonical.href);
+  }
+  else if (canonical.href != current.href) {
+    const title = canonical.href == original.href
+      ? 'Return to original (canonical) URL'
+      : `Change to ${UrlInfo.canonicalUrl ? 'canonical' : 'pure'} URL`
+      ;
+    return State('non-canonical', title, canonical.href);
+  }
+  else if (canonical.href != original.href) {
+    return State('canonical', 'Return to original URL', original.href);
+  }
+  else if (UrlInfo.canonicalUrl) {
+    return State('canonical', 'This is canonical URL');
+  }
+  else {
+    return State('disabled', '');
+  }
+}
+
+const handler = {
+  complete({url}) {
+    if (!UrlInfo.originalUrl) {
+      Object.assign(UrlInfo, {
+        originalUrl: url,
+        canonicalUrl: getCanonicalUrl(),
+        pureUrl: getPureUrl(url),
+      });
     }
+    UrlInfo.currentUrl = url;
+    chrome.runtime.sendMessage(getState());
+  },
 
-    function getCurrentStatus() {
-        if (Url.canonical !== null) {
-            if (Url.canonical === L.href) {
-                return new Status('canonical');
-            }
-            else if (!Url.canonical.startsWith(L.origin + '/')) {
-                return new Status('otherOrigin');
-            }
-        }
-        return new Status('original');
+  click() {
+    const {state, url} = getState();
+    if (state == 'other-origin') {
+      window.open(url, '_blank');
     }
-
-    function changeUrl() {
-        const status = getCurrentStatus();
-        if (status.code === 'otherOrigin') {
-            window.open(Url.canonical, '_blank');
-        }
-        else {
-            const code = status.code === 'original' ? 'canonical' : 'original';
-            history.replaceState(null, null, Url[code]);
-        }
+    else if (url) {
+      history.replaceState(null, null, url);
     }
+  }
+};
 
-    function sendStatus() {
-        chrome.runtime.sendMessage(getCurrentStatus());
-    }
-
-    function handleMsg(msg) {
-      const handler = {
-        clicked: changeUrl,
-        changed: sendStatus
-      };
-
-      if (handler[msg]) {
-        handler[msg]();
-      }
-    }
-
-    function setup() {
-        chrome.runtime.onMessage.addListener(handleMsg);
-        window.addEventListener('load', sendStatus);
-        sendStatus();
-    }
-
-    function cleanUrl() {
-        const params = [];
-        L.search.substr(1).split('&').forEach(function(param) {
-            if (!UnnecessaryParams[ param.split('=')[0] ]) {
-                params.push(param);
-            }
-        });
-
-        const query = params.length ? '?' + params.join('&') : '';
-        return L.protocol + '//' + L.host + L.pathname + query + L.hash;
-    }
-
-    function detect() {
-        const link = document.querySelector('link[rel="canonical"]');
-        if (link) {
-            Url.canonical = link.href;
-        }
-        else if (L.search !== '') {
-            Url.canonical = cleanUrl();
-        }
-
-        if (Url.canonical !== null && Url.canonical !== L.href) {
-            setup();
-        }
-    }
-
-    if (!ExcludeHosts[L.host]) {
-        detect();
-    }
-})(window.location);
+chrome.runtime.onMessage.addListener((message) => {
+  if (handler[message.type]) {
+    handler[message.type](message);
+  }
+});

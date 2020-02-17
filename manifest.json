@@ -3,7 +3,7 @@
   "name": "Canonical Url Detector",
   "description": "__MSG_appDesc__",
   "default_locale": "en",
-  "version": "1.3.2",
+  "version": "2.0.0",
   "author": "irok",
   "homepage_url": "https://chrome.google.com/webstore/detail/dcbmeicnoejpldipejlefojiiebhogij",
   "icons": {
@@ -17,16 +17,15 @@
   },
   "page_action": {
     "default_icon": {
-      "16": "img/icon-canonical.png"
+      "16": "img/icon-disabled.png"
     },
     "default_title": "Canonical Url Detector"
   },
   "content_scripts": [{
     "matches": ["http://*/*", "https://*/*"],
-    "js": ["content.js"],
-    "run_at": "document_end"
+    "js": ["content.js"]
   }],
   "permissions": [
-    "webNavigation"
+    "tabs"
   ]
 }
