@@ -41,19 +41,25 @@ const UrlInfo = {};
 const State = (type, title, url) => ({type, title, url});
 
 function getState() {
-  const original = new URL(UrlInfo.originalUrl);
   const canonical = new URL(UrlInfo.canonicalUrl || UrlInfo.pureUrl);
+  const original = new URL(UrlInfo.originalUrl);
   const current = new URL(UrlInfo.currentUrl);
 
   if (canonical.origin != original.origin) {
     return State('other-origin', `Open the "${canonical.href}"`, canonical.href);
   }
   else if (canonical.href != current.href) {
-    const type = UrlInfo.canonicalUrl ? 'canonical' : 'pure';
-    return State('non-canonical', `Change to ${type} URL`, canonical.href);
+    const title = canonical.href == original.href
+      ? 'Return to original (canonical) URL'
+      : `Change to ${UrlInfo.canonicalUrl ? 'canonical' : 'pure'} URL`
+      ;
+    return State('non-canonical', title, canonical.href);
   }
   else if (canonical.href != original.href) {
     return State('canonical', 'Return to original URL', original.href);
+  }
+  else if (UrlInfo.canonicalUrl) {
+    return State('canonical', 'This is canonical URL');
   }
   else {
     return State('disabled', '');
@@ -64,10 +70,9 @@ const handler = {
   complete({url}) {
     if (!UrlInfo.originalUrl) {
       Object.assign(UrlInfo, {
-        originalUrl: location.href,
+        originalUrl: url,
         canonicalUrl: getCanonicalUrl(),
-        pureUrl: getPureUrl(location.href),
-
+        pureUrl: getPureUrl(url),
       });
     }
     UrlInfo.currentUrl = url;
