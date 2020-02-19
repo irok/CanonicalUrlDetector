@@ -32,7 +32,7 @@ function getPureUrl(url) {
   return `${_.protocol}//${_.host}${_.pathname}${query}`;
 }
 
-function getCanonicalUrl() {
+function getCanonicalLinkUrl() {
   const link = document.querySelector('link[rel="canonical"]');
   return link && link.href;
 }
@@ -41,7 +41,7 @@ const UrlInfo = {};
 const State = (type, title, url) => ({type, title, url});
 
 function getState() {
-  const canonical = new URL(UrlInfo.canonicalUrl || UrlInfo.pureUrl);
+  const canonical = new URL(UrlInfo.canonicalUrl);
   const original = new URL(UrlInfo.originalUrl);
   const current = new URL(UrlInfo.currentUrl);
 
@@ -51,14 +51,14 @@ function getState() {
   else if (canonical.href != current.href) {
     const title = canonical.href == original.href
       ? 'Return to original (canonical) URL'
-      : `Change to ${UrlInfo.canonicalUrl ? 'canonical' : 'pure'} URL`
+      : `Change to ${UrlInfo.linkUrl ? 'canonical' : 'pure'} URL`
       ;
     return State('non-canonical', title, canonical.href);
   }
   else if (canonical.href != original.href) {
     return State('canonical', 'Return to original URL', original.href);
   }
-  else if (UrlInfo.canonicalUrl) {
+  else if (UrlInfo.linkUrl) {
     return State('canonical', 'This is canonical URL');
   }
   else {
@@ -69,10 +69,12 @@ function getState() {
 const handler = {
   update({url}) {
     if (!UrlInfo.originalUrl) {
+      const linkUrl = getCanonicalLinkUrl();
+      const pureUrl = getPureUrl(url);
       Object.assign(UrlInfo, {
         originalUrl: url,
-        canonicalUrl: getCanonicalUrl(),
-        pureUrl: getPureUrl(url),
+        canonicalUrl: linkUrl || pureUrl,
+        linkUrl, pureUrl
       });
     }
     UrlInfo.currentUrl = url;
