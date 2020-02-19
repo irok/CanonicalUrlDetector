@@ -58,6 +58,9 @@ function getState() {
   else if (current.href != original.href) {
     return State('canonical', 'Return to original URL', original.href);
   }
+  else if (UrlInfo.previousUrl) {
+    return State('canonical', 'Change to previous URL', UrlInfo.previousUrl);
+  }
   else if (UrlInfo.linkUrl) {
     return State('canonical', 'This is canonical URL');
   }
@@ -77,6 +80,7 @@ const handler = {
         linkUrl, pureUrl
       });
     }
+    UrlInfo.previousUrl = UrlInfo.currentUrl;
     UrlInfo.currentUrl = url;
     chrome.runtime.sendMessage(getState());
   },
