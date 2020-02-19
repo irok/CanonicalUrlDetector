@@ -80,12 +80,14 @@ const handler = {
   },
 
   click() {
-    const {state, url} = getState();
-    if (state == 'other-origin') {
-      window.open(url, '_blank');
-    }
-    else if (url) {
-      history.replaceState(null, null, url);
+    if (UrlInfo.originalUrl) {
+      const {state, url} = getState();
+      if (state == 'other-origin') {
+        window.open(url, '_blank');
+      }
+      else if (url) {
+        history.replaceState(null, null, url);
+      }
     }
   }
 };
