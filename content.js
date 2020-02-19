@@ -48,14 +48,14 @@ function getState() {
   if (canonical.origin != original.origin) {
     return State('other-origin', `Open the "${canonical.href}"`, canonical.href);
   }
-  else if (canonical.href != current.href) {
+  else if (current.href != canonical.href) {
     const title = canonical.href == original.href
       ? 'Return to original (canonical) URL'
       : `Change to ${UrlInfo.linkUrl ? 'canonical' : 'pure'} URL`
       ;
     return State('non-canonical', title, canonical.href);
   }
-  else if (canonical.href != original.href) {
+  else if (current.href != original.href) {
     return State('canonical', 'Return to original URL', original.href);
   }
   else if (UrlInfo.linkUrl) {
