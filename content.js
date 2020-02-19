@@ -67,7 +67,7 @@ function getState() {
 }
 
 const handler = {
-  complete({url}) {
+  update({url}) {
     if (!UrlInfo.originalUrl) {
       Object.assign(UrlInfo, {
         originalUrl: url,
