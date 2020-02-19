@@ -7,9 +7,7 @@
     "url": "https://github.com/irok/CanonicalUrlDetector/issues"
   },
   "devDependencies": {
-    "del": "^3.0.0",
-    "gulp": "^4.0.2",
-    "gulp-zip": "^4.2.0"
+    "cross-zip-cli": "^1.0.0"
   },
   "homepage": "https://chrome.google.com/webstore/detail/dcbmeicnoejpldipejlefojiiebhogij",
   "keywords": [
@@ -24,6 +22,6 @@
     "url": "git://github.com/irok/CanonicalUrlDetector.git"
   },
   "scripts": {
-    "build": "gulp build"
+    "build": "cross-zip dist extension.zip"
   }
 }

@@ -6,7 +6,7 @@
 Chrome及びFirefox向けのブラウザ拡張です。
 
 ページにCanonical URLがあるとアイコンがアクティブになり、クリックするとアドレスバーのURLが変わります。その際、ページはリロードされません。もう一度クリックすると元のURLに戻ります。
-URLに余計なパラメータが入っているときも同じように動きます。
+URLに余計なパラメータやフラグメントが入っているときも同じように動きます。
 ページをシェアするときなどにご利用ください。
 
 <img src="https://raw.githubusercontent.com/irok/CanonicalUrlDetector/master/img/icon-disabled.png" width="16"/> ページにCanonical URLがないか、既にCanonical URLです。
@@ -21,7 +21,7 @@ URLに余計なパラメータが入っているときも同じように動き�
 
 1. `link[rel=canonical]`要素のhref属性値
 2. 不要なパラメータとフラグメントを除去したURL
-    * 詳しくは[`content.js`](https://github.com/irok/CanonicalUrlDetector/blob/master/content.js)を見てください。
+    * 詳しくは[`content.js`](https://github.com/irok/CanonicalUrlDetector/blob/master/dist/content.js)を見てください。
 
 ## インストール
 * Chrome
