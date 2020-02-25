@@ -9,13 +9,13 @@ The extension icon becomes active when the page has canonical url, and click it 
 It works in the same way when the url contains extra parameters and flagment.
 Please use it, for example, when you share a page.
 
-<img src="https://raw.githubusercontent.com/irok/CanonicalUrlDetector/master/img/icon-disabled.png" width="16"/> There is no canonical url or already canonical url.
+<img src="https://raw.githubusercontent.com/irok/CanonicalUrlDetector/master/dist/img/icon-disabled.png" width="16"/> There is no canonical url or already canonical url.
 
-<img src="https://raw.githubusercontent.com/irok/CanonicalUrlDetector/master/img/icon-non-canonical.png" width="16"/> Not canonical url. Clicking it changes to canonical url.
+<img src="https://raw.githubusercontent.com/irok/CanonicalUrlDetector/master/dist/img/icon-non-canonical.png" width="16"/> Not canonical url. Clicking it changes to canonical url.
 
-<img src="https://raw.githubusercontent.com/irok/CanonicalUrlDetector/master/img/icon-canonical.png" width="16"/> Canonical url. Click to return to the original url.
+<img src="https://raw.githubusercontent.com/irok/CanonicalUrlDetector/master/dist/img/icon-canonical.png" width="16"/> Canonical url. Click to return to the original url.
 
-<img src="https://raw.githubusercontent.com/irok/CanonicalUrlDetector/master/img/icon-other-origin.png" width="16"/> Not canonical url. Clicking it opens canonical url in new tab.
+<img src="https://raw.githubusercontent.com/irok/CanonicalUrlDetector/master/dist/img/icon-other-origin.png" width="16"/> Not canonical url. Clicking it opens canonical url in new tab.
 
 ## about Canonical URL
 

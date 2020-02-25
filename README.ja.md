@@ -9,13 +9,13 @@ Chrome及びFirefox向けのブラウザ拡張です。
 URLに余計なパラメータやフラグメントが入っているときも同じように動きます。
 ページをシェアするときなどにご利用ください。
 
-<img src="https://raw.githubusercontent.com/irok/CanonicalUrlDetector/master/img/icon-disabled.png" width="16"/> ページにCanonical URLがないか、既にCanonical URLです。
+<img src="https://raw.githubusercontent.com/irok/CanonicalUrlDetector/master/dist/img/icon-disabled.png" width="16"/> ページにCanonical URLがないか、既にCanonical URLです。
 
-<img src="https://raw.githubusercontent.com/irok/CanonicalUrlDetector/master/img/icon-non-canonical.png" width="16"/> Canonical URLではありません。クリックすると正規のURLに変わります。
+<img src="https://raw.githubusercontent.com/irok/CanonicalUrlDetector/master/dist/img/icon-non-canonical.png" width="16"/> Canonical URLではありません。クリックすると正規のURLに変わります。
 
-<img src="https://raw.githubusercontent.com/irok/CanonicalUrlDetector/master/img/icon-canonical.png" width="16"/> Canonical URLです。クリックすると元のURLに戻ります。
+<img src="https://raw.githubusercontent.com/irok/CanonicalUrlDetector/master/dist/img/icon-canonical.png" width="16"/> Canonical URLです。クリックすると元のURLに戻ります。
 
-<img src="https://raw.githubusercontent.com/irok/CanonicalUrlDetector/master/img/icon-other-origin.png" width="16"/> Canonical URLではありません。クリックすると新しいタブでCanonical URLを開きます。
+<img src="https://raw.githubusercontent.com/irok/CanonicalUrlDetector/master/dist/img/icon-other-origin.png" width="16"/> Canonical URLではありません。クリックすると新しいタブでCanonical URLを開きます。
 
 ## 何をCanonical URLとしているか
 
