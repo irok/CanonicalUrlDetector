@@ -1,7 +1,7 @@
 {
-  "name": "CanonicalUrlDetector",
+  "name": "canonical-url-detector",
   "description": "This is a browser extension that detect Canonical URL and click to switch URL in the address bar without reloading.",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "author": "irok",
   "bugs": {
     "url": "https://github.com/irok/CanonicalUrlDetector/issues"
