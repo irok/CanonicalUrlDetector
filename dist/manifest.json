@@ -3,9 +3,9 @@
   "name": "Canonical Url Detector",
   "description": "__MSG_appDesc__",
   "default_locale": "en",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "author": "irok",
-  "homepage_url": "https://chrome.google.com/webstore/detail/dcbmeicnoejpldipejlefojiiebhogij",
+  "homepage_url": "https://github.com/irok/CanonicalUrlDetector",
   "icons": {
     "16": "img/icon-canonical.png",
     "48": "img/icon-48.png",
