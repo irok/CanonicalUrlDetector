@@ -1,4 +1,5 @@
 const UnnecessaryParams = [
+  '_ga',
   'action_object_map',
   'action_ref_map',
   'action_type_map',
