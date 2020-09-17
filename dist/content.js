@@ -11,6 +11,8 @@ const UnnecessaryParams = [
   'fb_source',
   'fb_xd_fragment',
   'gclid',
+  'ref_src',
+  'ref_url',
   'utm_campaign',
   'utm_content',
   'utm_medium',
