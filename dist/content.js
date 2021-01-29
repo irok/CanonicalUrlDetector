@@ -90,8 +90,8 @@ const handler = {
 
   click() {
     if (UrlInfo.originalUrl) {
-      const {state, url} = getState();
-      if (state == 'other-origin') {
+      const {type, url} = getState();
+      if (type == 'other-origin') {
         window.open(url, '_blank');
       }
       else if (url) {
