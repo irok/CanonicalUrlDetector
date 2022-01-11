@@ -73,7 +73,8 @@ function getState() {
 }
 
 const handler = {
-  update({url}) {
+  update() {
+    const url = location.href;
     if (!UrlInfo.originalUrl) {
       const linkUrl = getCanonicalLinkUrl();
       const pureUrl = getPureUrl(url);

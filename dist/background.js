@@ -1,6 +1,6 @@
-chrome.tabs.onUpdated.addListener((tabId, {status}, {url}) => {
+chrome.tabs.onUpdated.addListener((tabId, {status}) => {
   if (status === 'complete') {
-    chrome.tabs.sendMessage(tabId, {type: 'update', url});
+    chrome.tabs.sendMessage(tabId, {type: 'update'});
   }
 });
 
