@@ -1,0 +1,8 @@
+https://www.bleepingcomputer.com/news/security/new-firefox-privacy-feature-strips-urls-of-tracking-parameters/
+Olytics: oly_enc_id=, oly_anon_id=
+Drip: __s=
+Vero: vero_id=
+HubSpot: _hsenc=
+Marketo: mkt_tok=
+Facebook: fbclid=, mc_eid=
+
