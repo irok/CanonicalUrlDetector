@@ -48,28 +48,24 @@ function getState() {
   const original = new URL(UrlInfo.originalUrl);
   const current = new URL(UrlInfo.currentUrl);
 
-  if (canonical.origin != original.origin) {
-    return State('other-origin', `Open the "${canonical.href}"`, canonical.href);
-  }
-  else if (current.href != canonical.href) {
-    const title = canonical.href == original.href
-      ? 'Return to original (canonical) URL'
-      : `Change to ${UrlInfo.linkUrl ? 'canonical' : 'pure'} URL`
-      ;
-    return State('non-canonical', title, canonical.href);
-  }
-  else if (current.href != original.href) {
-    return State('canonical', 'Return to original URL', original.href);
-  }
-  else if (UrlInfo.previousUrl) {
-    return State('canonical', 'Change to previous URL', UrlInfo.previousUrl);
-  }
-  else if (UrlInfo.linkUrl) {
-    return State('canonical', 'This is canonical URL');
-  }
-  else {
+  // canonical == original: no action needed
+  if (canonical.href == original.href) {
     return State('disabled', '');
   }
+
+  // current == canonical: click to return to original
+  if (current.href == canonical.href) {
+    return State('canonical', 'Return to original URL', original.href);
+  }
+
+  // different origin: click to open in new window
+  if (canonical.origin != current.origin) {
+    return State('other-origin', `Open the "${canonical.href}"`, canonical.href);
+  }
+
+  // otherwise: click to change to canonical
+  const title = `Change to ${UrlInfo.linkUrl ? 'canonical' : 'pure'} URL`;
+  return State('non-canonical', title, canonical.href);
 }
 
 const handler = {
@@ -84,7 +80,6 @@ const handler = {
         linkUrl, pureUrl
       });
     }
-    UrlInfo.previousUrl = UrlInfo.currentUrl;
     UrlInfo.currentUrl = url;
     chrome.runtime.sendMessage(getState());
   },
