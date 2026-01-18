@@ -52,6 +52,14 @@ function getState() {
   const original = new URL(UrlInfo.originalUrl);
   const current = new URL(UrlInfo.currentUrl);
 
+  // current has fragment that canonical doesn't have: click to remove fragment
+  if (current.hash && !canonical.hash) {
+    const currentWithoutHash = `${current.protocol}//${current.host}${current.pathname}${current.search}`;
+    if (currentWithoutHash === canonical.href) {
+      return State('non-canonical', 'Remove fragment', canonical.href);
+    }
+  }
+
   // canonical == original: no action needed
   if (canonical.href == original.href) {
     return State('disabled', '');
@@ -105,4 +113,8 @@ chrome.runtime.onMessage.addListener((message) => {
   if (handler[message.type]) {
     handler[message.type](message);
   }
+});
+
+window.addEventListener('hashchange', () => {
+  handler.update();
 });
