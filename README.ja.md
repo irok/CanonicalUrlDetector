@@ -3,7 +3,7 @@
 - [English](https://github.com/irok/CanonicalUrlDetector/blob/master/README.md)
 - 日本語
 
-Chrome及びFirefox向けのブラウザ拡張です。
+Canonical URLを見つけるChrome拡張機能です。
 
 ページにCanonical URLがあるとアイコンがアクティブになり、クリックするとアドレスバーのURLが変わります。その際、ページはリロードされません。もう一度クリックすると元のURLに戻ります。
 URLに余計なパラメータやフラグメントが入っているときも同じように動きます。
@@ -24,7 +24,4 @@ URLに余計なパラメータやフラグメントが入っているときも�
     * 詳しくは[`content.js`](https://github.com/irok/CanonicalUrlDetector/blob/master/dist/content.js)を見てください。
 
 ## インストール
-* Chrome
-    * [Canonical Url Detector - Chrome ウェブストア](https://chrome.google.com/webstore/detail/canonical-url-detector/dcbmeicnoejpldipejlefojiiebhogij)
-* Firefox
-    * [Canonical Url Detector – 🦊 Firefox (ja) 向け拡張機能を入手](https://addons.mozilla.org/ja/firefox/addon/canonical-url-detector/)
+* [Canonical Url Detector - Chrome ウェブストア](https://chrome.google.com/webstore/detail/canonical-url-detector/dcbmeicnoejpldipejlefojiiebhogij)

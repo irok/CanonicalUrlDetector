@@ -1,5 +1,5 @@
 {
   "appDesc": {
-    "message": "If the page has Canonical URL, you can click to switch the URL in address bar."
+    "message": "Detects canonical URLs and lets you switch to the canonical version without reloading."
   }
 }
