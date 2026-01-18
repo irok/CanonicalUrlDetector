@@ -1,31 +1,35 @@
 const UnnecessaryParams = [
+  /^action_[a-z]+_map$/,
+  /^fb(?:_[a-z]+)+$/,
+  /^ga_/,
+  /^utm_[a-z]+$/,
+  '_fbc',
+  '_fbp',
   '_ga',
-  'action_object_map',
-  'action_ref_map',
-  'action_type_map',
-  'fb_action_ids',
-  'fb_action_types',
-  'fb_aggregation_id',
-  'fb_comment_id',
-  'fb_ref',
-  'fb_source',
-  'fb_xd_fragment',
+  '_gl',
+  'dclid',
+  'fbclid',
   'gclid',
+  'gclsrc',
+  'gbraid',
+  'msclkid',
   'ref_src',
   'ref_url',
-  'utm_campaign',
-  'utm_content',
-  'utm_medium',
-  'utm_place',
-  'utm_reader',
-  'utm_source',
-  'utm_term'
+  'ttclid',
+  'twclid',
+  'wbraid',
+  'yclid',
 ];
-const UnnecessaryParamRegex = /^ga_/;
+
+function isUnnecessaryParam(name) {
+  return UnnecessaryParams.some(pattern =>
+    pattern instanceof RegExp ? pattern.test(name) : pattern === name
+  );
+}
 
 function isNecessaryParam(param) {
   const name = param.split('=')[0];
-  return !(UnnecessaryParams.includes(name) || UnnecessaryParamRegex.test(name));
+  return !isUnnecessaryParam(name);
 }
 
 function getPureUrl(url) {
