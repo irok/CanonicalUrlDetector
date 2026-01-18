@@ -24,4 +24,4 @@ For example, use it when sharing a page.
     * See [`content.js`](https://github.com/irok/CanonicalUrlDetector/blob/master/dist/content.js) for details.
 
 ## Installation
-* [Canonical Url Detector - Chrome Web Store](https://chrome.google.com/webstore/detail/canonical-url-detector/dcbmeicnoejpldipejlefojiiebhogij)
+* [Canonical Url Detector - Chrome Web Store]()

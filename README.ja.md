@@ -24,4 +24,4 @@ URLに余計なパラメータやフラグメントが入っているときも�
     * 詳しくは[`content.js`](https://github.com/irok/CanonicalUrlDetector/blob/master/dist/content.js)を見てください。
 
 ## インストール
-* [Canonical Url Detector - Chrome ウェブストア](https://chrome.google.com/webstore/detail/canonical-url-detector/dcbmeicnoejpldipejlefojiiebhogij)
+* [Canonical Url Detector - Chrome ウェブストア]()
