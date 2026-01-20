@@ -3,11 +3,12 @@
 - [English](https://github.com/irok/CanonicalUrlDetector/blob/master/README.md)
 - 日本語
 
-Canonical URLを見つけるChrome拡張機能です。
+ウェブページを共有する際、URLに余計なトラッキングパラメータなどが含まれることが多く、不必要に長く煩雑になってしまうことがあります。<br/>
+このChrome拡張は正規URLを検出し、ページを再読み込みすることなく、ワンクリックでアドレスバーを正規URLに切り替えることができます。<br/>
+もう一度クリックすると元のURLに戻ります。<br/>
 
-ページにCanonical URLがあるとアイコンがアクティブになり、クリックするとアドレスバーのURLが変わります。その際、ページはリロードされません。もう一度クリックすると元のURLに戻ります。
-URLに余計なパラメータやフラグメントが入っているときも同じように動きます。
-ページをシェアするときなどにご利用ください。
+ページに `link[rel=canonical]` 要素が含まれている場合、その値を正規URLとして使用します。<br/>
+含まれていない場合、一般的なトラッキングパラメータを削除したクリーンなURLを生成し、正規URLとして使用します。<br/>
 
 <img src="https://raw.githubusercontent.com/irok/CanonicalUrlDetector/master/dist/img/icon-disabled.png" width="16"/> ページにCanonical URLがないか、既にCanonical URLです。
 
@@ -17,11 +18,5 @@ URLに余計なパラメータやフラグメントが入っているときも�
 
 <img src="https://raw.githubusercontent.com/irok/CanonicalUrlDetector/master/dist/img/icon-other-origin.png" width="16"/> Canonical URLではありません。クリックすると新しいタブでCanonical URLを開きます。
 
-## 何をCanonical URLとしているか
-
-1. `link[rel=canonical]`要素のhref属性値
-2. 不要なパラメータとフラグメントを除去したURL
-    * 詳しくは[`content.js`](https://github.com/irok/CanonicalUrlDetector/blob/master/dist/content.js)を見てください。
-
 ## インストール
-* [Canonical Url Detector - Chrome ウェブストア]()
+* [Canonical Url Detector - Chrome ウェブストア](https://chromewebstore.google.com/detail/canonical-url-detector/ghjnelhinnmbnaipohdaaolpbnhpjodh?hl=ja)
