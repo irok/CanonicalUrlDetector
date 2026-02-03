@@ -91,6 +91,13 @@ const handler = {
         canonicalUrl: linkUrl || pureUrl,
         linkUrl, pureUrl
       });
+    } else if (!UrlInfo.linkUrl) {
+      // canonical linkが見つかっていない場合、再検出を試みる
+      const linkUrl = getCanonicalLinkUrl();
+      if (linkUrl) {
+        UrlInfo.linkUrl = linkUrl;
+        UrlInfo.canonicalUrl = linkUrl;
+      }
     }
     UrlInfo.currentUrl = url;
     chrome.runtime.sendMessage(getState());
