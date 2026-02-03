@@ -118,3 +118,6 @@ chrome.runtime.onMessage.addListener((message) => {
 window.addEventListener('hashchange', () => {
   handler.update();
 });
+
+// HTMLパース完了時点で即座にcanonical URLを検出
+handler.update();
