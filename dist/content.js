@@ -41,7 +41,14 @@ function getPureUrl(url) {
 
 function getCanonicalLinkUrl() {
   const link = document.querySelector('link[rel="canonical"]');
-  return link && link.href;
+  if (!link || !link.href) return undefined;
+  try {
+    const {protocol} = new URL(link.href);
+    if (protocol !== 'http:' && protocol !== 'https:') return undefined;
+  } catch {
+    return undefined;
+  }
+  return link.href;
 }
 
 const UrlInfo = {};

@@ -4,8 +4,10 @@ chrome.tabs.onUpdated.addListener((tabId, {status}) => {
   }
 });
 
+const IconTypes = ['canonical', 'non-canonical', 'disabled', 'other-origin'];
+
 chrome.runtime.onMessage.addListener(({type, title}, {frameId, tab: {id: tabId}}) => {
-  if (frameId === 0) {
+  if (frameId === 0 && IconTypes.includes(type)) {
     const path = `img/icon-${type}.png`;
     chrome.action.setIcon({tabId, path});
     chrome.action.setTitle({tabId, title});
