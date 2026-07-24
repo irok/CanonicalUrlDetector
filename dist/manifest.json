@@ -3,7 +3,7 @@
   "name": "Canonical Url Detector",
   "description": "__MSG_appDesc__",
   "default_locale": "en",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "author": "irok",
   "homepage_url": "https://github.com/irok/CanonicalUrlDetector",
   "icons": {
